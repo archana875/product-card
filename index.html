@@ -4,8 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Card </title>
+
+    <style>
+        body{
+            background-color: violet;
+        }
+        .product-card{
+            border:1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            height: 350px;
+            width: 350px;
+            margin: 80px;
+            margin-left: 500px;
+            background-color: yellow;
+            box-shadow: 0px 0px 30px 1px;
+        
+        }
+        .product-img{
+            display: block;
+            margin: 10px auto;
+            border-radius: 7px 0px 7px 0px;
+            box-shadow: 1px 1.5px 3px 1px;
+        }
+        .product-card-img{
+            display: block;
+            margin: 10px auto;
+            border-radius: 7px 0px 7px 0px;
+            box-shadow: 1px 1.5px 2px 1px;
+        }
+        .product-card-heading{
+            text-align: center;
+            color:red;
+            font-size:25px;
+            margin-top: 37px;
+        }
+        .product-btn-container{
+            display: flex;
+            justify-content: space-around;
+            height: 30px;
+            margin-top: 40px;
+            
+        }
+        .p-btn{
+            
+            cursor: pointer;
+            background-color:teal;
+            border: none;
+            width: 25px;
+        }
+        .p-card{
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="product-card">
+        <img src="butterfly.png"  height="150px" width="150px" class="product-card-img">
+        <h1 class="product-card-heading">Butterfly</h1>        
+           
+        <div class="product-btn-container">
+            <button type="button" class="p-btn" onclick="ChangeQuality('decr')">
+                -
+            </button>
+            <span class="p-card" id="measure">1</span>
+            <button type="button" class="p-btn" onclick="ChangeQuality('incr')">
+                +
+            </button>
+        </div>
+    </div>
+    <script>
+        const measureElement=document.getElementById("measure");
+        let measure = parseInt(measureElement.innerText);
+
+        function ChangeQuality(op){
+            if(op === 'incr')
+            ++measure;
+
+            if(op === 'decr')
+            --measure;
+
+         measureElement.innerText = measure;
+        }
+    </script>
 </body>
 </html>
